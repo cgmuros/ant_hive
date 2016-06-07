@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project name="bud-operativo" default="hive">
+	<available file="build.properties" property="build.properties.present" />
+	<fail message="Se debe copiar el archivo build.properties.template a build.properties y ajustar sus datos.">
+		<condition>
+			<not>
+				<isset property="build.properties.present" />
+			</not>
+		</condition>
+	</fail>
+	<!-- PARAMETROS GENERALES -->
+	<property file="build.properties" />
+	<path id="library.db.classpath">
+		<pathelement location="HiveJDBC4.jar" />
+		<fileset dir="">
+    <include name="**/*.jar" />
+  </fileset>
+	</path>
+	
+
+<target name="hive"  description="">
+		<echo message="url: ${database.budope.stage_bud.url}" />
+		<echo message="username: ${database.budope.stage_bud.user}" />
+		<sql encoding="UTF-8" driver="com.cloudera.hive.jdbc4.HS2Driver" url="${database.budope.stage_bud.url}" userid="${database.budope.stage_bud.user}" password="${database.budope.stage_bud.password}" delimiter=";" errorproperty="yes" keepformat="no">
+			<classpath refid="library.db.classpath" />
+			<transaction src="consulta.sql" />
+		</sql>
+	</target>
+</project>

@@ -13,12 +13,10 @@
 	<path id="library.db.classpath">
 		<pathelement location="HiveJDBC4.jar" />
 		<fileset dir="">
-    <include name="**/*.jar" />
-  </fileset>
+			<include name="**/*.jar" />
+		</fileset>
 	</path>
-	
-
-<target name="hive"  description="">
+	<target name="hive" description="">
 		<echo message="url: ${database.budope.stage_bud.url}" />
 		<echo message="username: ${database.budope.stage_bud.user}" />
 		<sql encoding="UTF-8" driver="com.cloudera.hive.jdbc4.HS2Driver" url="${database.budope.stage_bud.url}" userid="${database.budope.stage_bud.user}" password="${database.budope.stage_bud.password}" delimiter=";" errorproperty="yes" keepformat="no">

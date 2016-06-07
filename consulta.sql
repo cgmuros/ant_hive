@@ -1,4 +1,4 @@
-
+use default;
 
 create table if not exists hive (
 campo1 varchar(50)

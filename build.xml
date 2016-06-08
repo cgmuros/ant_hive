@@ -12,7 +12,7 @@
 	<property file="build.properties" />
 	<path id="library.db.classpath">
 		<pathelement location="HiveJDBC4.jar" />
-		<fileset dir="/libs">
+		<fileset dir="libs">
 			<include name="**/*.jar" />
 		</fileset>
 	</path>

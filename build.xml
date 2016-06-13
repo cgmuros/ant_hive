@@ -16,20 +16,12 @@
 			<include name="**/*.jar" />
 		</fileset>
 	</path>
-	<target name="EXP_He0_DT_PERSONA" description="He0_DT_PERSONA staging">
+	<target name="ddl" description="Ejecucion de tareas DDL">
 		<echo message="url: ${database.budope.stage_bud.url}" />
 		<echo message="username: ${database.budope.stage_bud.user}" />
 		<sql encoding="UTF-8" driver="com.cloudera.hive.jdbc4.HS2Driver" url="${database.budope.stage_bud.url}" userid="${database.budope.stage_bud.user}" password="${database.budope.stage_bud.password}" delimiter=";" errorproperty="yes" keepformat="no">
 			<classpath refid="library.db.classpath" />
-			<transaction src="/user/cloudera/hive/src/ddl/tablas/HE0_DT_PERSONA.HQL" />
-		</sql>
-	</target>
-	<target name="EXP_He0_DT_PERSONA_HCA" description="He0_DT_PERSONA_HCA staging">
-		<echo message="url: ${database.budope.stage_bud.url}" />
-		<echo message="username: ${database.budope.stage_bud.user}" />
-		<sql encoding="UTF-8" driver="com.cloudera.hive.jdbc4.HS2Driver" url="${database.budope.stage_bud.url}" userid="${database.budope.stage_bud.user}" password="${database.budope.stage_bud.password}" delimiter=";" errorproperty="yes" keepformat="no">
-			<classpath refid="library.db.classpath" />
-			<transaction src="/user/cloudera/hive/src/ddl/tablas/HE0_DT_PERSONA_HCA.HQL" />
+			<transaction src="ddl/tareas.hql" />
 		</sql>
 	</target>
 </project>

@@ -16,7 +16,7 @@
 			<include name="**/*.jar" />
 		</fileset>
 	</path>
-	<target name="EXP_He0_DT_PERSONA" description="He0_DT_PERSONA staging" depends="EXP_He0_DT_PERSONA_HCA">
+	<target name="EXP_He0_DT_PERSONA" description="He0_DT_PERSONA staging">
 		<echo message="url: ${database.budope.stage_bud.url}" />
 		<echo message="username: ${database.budope.stage_bud.user}" />
 		<sql encoding="UTF-8" driver="com.cloudera.hive.jdbc4.HS2Driver" url="${database.budope.stage_bud.url}" userid="${database.budope.stage_bud.user}" password="${database.budope.stage_bud.password}" delimiter=";" errorproperty="yes" keepformat="no">

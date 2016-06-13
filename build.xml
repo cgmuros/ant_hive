@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<project name="bud-operativo" default="EXP_He0_DT_PERSONA">
+<project name="bud-operativo" default="ddl">
 	<available file="build.properties" property="build.properties.present" />
 	<fail message="Se debe copiar el archivo build.properties.template a build.properties y ajustar sus datos.">
 		<condition>

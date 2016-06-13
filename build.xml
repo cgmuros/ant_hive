@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<project name="bud-operativo" default="hive">
+<project name="bud-operativo" default="EXP_He0_DT_PERSONA">
 	<available file="build.properties" property="build.properties.present" />
 	<fail message="Se debe copiar el archivo build.properties.template a build.properties y ajustar sus datos.">
 		<condition>
@@ -24,7 +24,7 @@
 			<transaction src="/user/cloudera/hive/src/ddl/tablas/He0_DT_PERSONA.hql" />
 		</sql>
 	</target>
-	<target name="EXP_He0_DT_PERSONA_HCA" description="He0_DT_PERSONA_HCA staging">
+	<target name="EXP_He0_DT_PERSONA_HCA" description="He0_DT_PERSONA_HCA staging" depends="EXP_He0_DT_PERSONA">
 		<echo message="url: ${database.budope.stage_bud.url}" />
 		<echo message="username: ${database.budope.stage_bud.user}" />
 		<sql encoding="UTF-8" driver="com.cloudera.hive.jdbc4.HS2Driver" url="${database.budope.stage_bud.url}" userid="${database.budope.stage_bud.user}" password="${database.budope.stage_bud.password}" delimiter=";" errorproperty="yes" keepformat="no">
